@@ -3,6 +3,10 @@ let chWord = words[Math.floor(Math.random() * words.length)];
 let lives = 7;
 let guessLetter = [];
 
+function showMessage(text) {
+  document.getElementById("message").innerText = text;
+}
+
 function displayWord() {
   let display = "";
   let win = true;
@@ -16,8 +20,7 @@ function displayWord() {
   }
   document.getElementById("word").innerText = display;
   if (win) {
-    document.getElementById("message").innerText =
-      "You won! Remaining lives: " + lives;
+    showMessage("You won! Remaining lives: " + lives);
   }
 }
 
@@ -37,8 +40,7 @@ function guess() {
     }
     displayWord();
     if (lives === 0) {
-      document.getElementById("message").innerText =
-        "You lost! The word was: " + chWord;
+      showMessage("You lost! The word was: " + chWord);
     }
   }
 }
